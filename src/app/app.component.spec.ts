@@ -1,10 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { By } from '@angular/platform-browser';
+import { HeaderComponent } from './layout/header/header.component';
+import { LoadingComponent } from '../shared/loading/loading.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, RouterModule.forRoot([])],
     }).compileComponents();
   });
 
@@ -14,16 +18,21 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'desafio-mottu' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('desafio-mottu');
-  });
-
-  it('should render title', () => {
+  it('should render the LoadingComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, desafio-mottu');
+    const loadingElement = fixture.debugElement.query(
+      By.directive(LoadingComponent)
+    );
+    expect(loadingElement).toBeTruthy();
+  });
+
+  it('should render the HeaderComponent', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const headerElement = fixture.debugElement.query(
+      By.directive(HeaderComponent)
+    );
+    expect(headerElement).toBeTruthy();
   });
 });

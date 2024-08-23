@@ -1,0 +1,26 @@
+<header>
+  <div class="logo">
+    <img src="assets/img/logo.svg" alt="Rick and Morty Logo" />
+  </div>
+  <nav class="nav-menu mat-elevation-z2">
+    <a
+      class="nav-item home"
+      routerLink="/home"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <mat-icon>home</mat-icon>
+      <span>Início</span>
+    </a>
+    <a
+      class="nav-item favorites"
+      routerLink="/favorites"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <mat-icon>favorite</mat-icon>
+      Favoritos
+      <span class="badge"> {{ countIsFavoriteds }} </span>
+    </a>
+  </nav>
+</header>

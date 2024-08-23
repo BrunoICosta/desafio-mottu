@@ -1,0 +1,24 @@
+<section class="favorites">
+  <div class="container">
+    <h2 class="title">Favoritos</h2>
+
+    <div
+      class="list-of-favorites"
+      [ngClass]="{ 'no-data': !favorites?.length }"
+    >
+      @for (favorite of favorites; track favorite) {
+      <app-card
+        [character]="favorite"
+        (emitCardFavorite)="unfavoriteCard($event)"
+      ></app-card>
+      } @empty {
+      <app-no-data
+        title="Parece que você ainda não tem favoritos"
+        subTitle="Volte à página inicial e escolha os melhores para você."
+        [isShowButton]="true"
+        (emitClickButton)="goToHome()"
+      ></app-no-data>
+      }
+    </div>
+  </div>
+</section>

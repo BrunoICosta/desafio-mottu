@@ -1,0 +1,13 @@
+<section class="no-data">
+  <div class="not-found">
+    <h2 class="title-not-found">
+      {{ title }}
+    </h2>
+    <div class="sub-title">
+      {{ subTitle }}
+    </div>
+    @if(isShowButton) {
+    <button mat-fab extended (click)="buttonClicked()">Voltar ao início</button>
+    }
+  </div>
+</section>

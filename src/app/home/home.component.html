@@ -1,0 +1,31 @@
+<section class="home">
+  <div class="container">
+    <div class="field" [formGroup]="form">
+      <h2 class="title">INÍCIO</h2>
+      <input
+        type="text"
+        matInput
+        formControlName="nameCharacter"
+        class="search-input"
+        placeholder="Pesquisar"
+      />
+    </div>
+    <div class="list-of-characters" [ngClass]="{'no-data': !characters?.length}">
+      @for (character of characters; track character) {
+      <app-card
+        [character]="character"
+        (emitCardFavorite)="favoriteOrUnfavoriteCard($event)"
+      ></app-card>
+      } @empty {
+      <app-no-data
+        title="Nada foi encontrado"
+        subTitle="Tente realizar uma nova busca."
+      ></app-no-data>
+      }
+    </div>
+    <app-paginator
+      [length]="length"
+      (emitPageChanged)="handlePageEvent($event)"
+    ></app-paginator>
+  </div>
+</section>

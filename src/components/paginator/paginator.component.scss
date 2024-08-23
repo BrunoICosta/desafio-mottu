@@ -1,0 +1,9 @@
+.mat-mdc-paginator::ng-deep {
+  background-color: transparent;
+  .mat-mdc-paginator-range-actions {
+    color: rgb(255, 255, 255);
+    button:disabled {
+      color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}

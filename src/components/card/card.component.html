@@ -1,0 +1,21 @@
+<div class="card">
+  <img class="img-icon" [src]="character?.image" />
+
+  <div class="content">
+    <h3 class="name">{{ character?.name }}</h3>
+    <div class="text">{{ character?.species }}</div>
+    <div class="text" *ngIf="character?.type">{{ character?.type }}</div>
+  </div>
+  <div
+    class="button-icon"
+    [ngClass]="{
+      'favorited': character?.favorited,
+    }"
+  >
+    <div class="icon">
+      <mat-icon (click)="favoriteCard(character!)">
+        {{ character?.favorited ? "favorite" : "favorite_border" }}
+      </mat-icon>
+    </div>
+  </div>
+</div>
